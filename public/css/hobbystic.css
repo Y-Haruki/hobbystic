@@ -1,0 +1,27 @@
+.hobbystic-container {
+  border: solid 1px #77d47b;
+  border-radius: 40px;
+  padding: 10px 40px;
+  background: #beeebf;
+}
+
+.hobbystic-login {
+  font-family: YuGo;
+  font-weight: bold;
+}
+
+.hobbystic-submit-button {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
+.hobbystic-button-container {
+  text-align: center;
+}
