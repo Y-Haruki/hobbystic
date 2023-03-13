@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 hobbystic-container">
+        <div class="col-md-6 hobbystic-container">
             <h3 class="mt-3 mb-3 text-center hobbystic-login">ログイン</h3>
 
             <br>
