@@ -9,8 +9,8 @@ class Hobby extends Model
 {
     use HasFactory;
 
-    public function  category_hobbies()
+    public function  categories()
     {
-        return $this->hasmany('App\Models\Category_Hobby');
+        return $this->belongsToMany('App\Models\Category');
     }
 }

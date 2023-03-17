@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category__hobbies', function (Blueprint $table) {
+        Schema::create('category_hobby', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id')->unsigned();
             $table->integer('hobby_id')->unsigned();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category__hobbies');
+        Schema::dropIfExists('category_hobby');
     }
 };

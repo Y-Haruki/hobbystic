@@ -10,8 +10,8 @@
   <div>
     <p>カテゴリーを選択してください</p>
     <select name="category_id">
-      @foreach ($category_hobbies as $category_hobby)
-      <option value="{{ $category_hobby->category_id }}">{{ $category_hobby->id }}</option>
+      @foreach ($categories as $category)
+      <option value="{{ $category->id }}">{{ $category->name }}</option>
       @endforeach
     </select>
   </div>

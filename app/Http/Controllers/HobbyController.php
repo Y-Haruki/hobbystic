@@ -31,11 +31,10 @@ class HobbyController extends Controller
     public function create()
     {
         //
-        $category_hobbies = Category_Hobby::all();
         
         $categories = Category::all();
 
-        return view('hobbies.create', compact('category_hobbies', 'categories'));
+        return view('hobbies.create', compact('categories'));
     }
 
     /**
@@ -54,6 +53,8 @@ class HobbyController extends Controller
         $hobby->content = $request->input('content');
         $hobby->category_id = $request->input('category_id');
         $hobby->save();
+
+        $hobby->categories()->attach($request->input('category_id'));
 
         return to_route('hobbies.index');
 

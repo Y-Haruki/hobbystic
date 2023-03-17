@@ -42,7 +42,7 @@ Route::get('/', function () {
 // Route::delete('/hobbies/{post}', [PostController::class, 'destroy'])->name('hobbies.destroy');
 // // 
 
-Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
+Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,17 +1,27 @@
+@extends('layouts.app')
+
+@section('content')
 <a href="{{ route('hobbies.create') }}"> 投稿する</a>
 <hr>
 
-@foreach ($hobbies as $hobby)
-<a href="{{ route('hobbies.show', $hobby->id) }}">
-  <div>
-    {{ $hobby->image }}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="">
+      <div class="d-flex flex-wrap">
+        @foreach ($hobbies as $hobby)
+        <div class="item">
+          <a href="{{ route('hobbies.show', $hobby->id) }}">
+            <div>
+              {{ $hobby->image }}
+            </div>
+            <h3>{{ $hobby->title }}</h3>
+          </a>
+          <hr>
+        </div>
+        @endforeach
+      </div>
+    </div>
   </div>
-  <h3>{{ $hobby->title }}</h3>
-</a>
-<form action="{{ route('hobbies.destroy', $hobby->id) }}" method="POST">
-  @csrf
-  @method('DELETE')
-  <button type='submit'>Delete</button>
-</form>
-<hr>
-@endforeach
+</div>
+
+@endsection
