@@ -4,9 +4,9 @@
 <a href="{{ route('hobbies.create') }}"> 投稿する</a>
 <hr>
 
-<div class="container">
+<div class="container hobby-index-container">
   <div class="row justify-content-center">
-    <div class="">
+    <div class="col-10">
       <div class="d-flex flex-wrap">
         @foreach ($hobbies as $hobby)
         <div class="item">

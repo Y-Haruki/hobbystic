@@ -1,3 +1,9 @@
+
+.hobby-index-container {
+  background-color: #beeebf;
+  height: 100%;
+}
+
 .hobbystic-container {
   border: solid 1px #77d47b;
   border-radius: 40px;
@@ -27,5 +33,7 @@
 }
 
 .item {
-  width: 50%;
+  /* width: 50%; */
+  width: calc((100% - 80px) / 2);
+  margin: 20px;
 }
