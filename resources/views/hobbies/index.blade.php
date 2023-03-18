@@ -11,12 +11,11 @@
         @foreach ($hobbies as $hobby)
         <div class="item">
           <a href="{{ route('hobbies.show', $hobby->id) }}">
-            <div>
+            <div class="hobby-image">
               {{ $hobby->image }}
             </div>
-            <h3>{{ $hobby->title }}</h3>
+            <h3 class="hobby-title">{{ $hobby->title }}</h3>
           </a>
-          <hr>
         </div>
         @endforeach
       </div>
