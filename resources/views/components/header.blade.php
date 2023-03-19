@@ -1,14 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm hobbystic-header-container">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
+          <i>
             {{ config('app.name', 'Laravel') }}
+          </i>
         </a>
-        <form>
-          <div>
-            <input class="form-control hobbystic-search-input">
+        <form class="row g-1">
+          <div class="col-auto">
+            <input class="form-control hobbystic-header-search-input" placeholder="キーワードで検索">
           </div>
-          <div>
-            <button type="submit" class=""><i class=""></i></button>
+          <div class="col-auto">
+            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon">button</i></button>
+          </div>
+
+          <div class="col-auto">
+            <input class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon">button</i></button>
           </div>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -21,7 +30,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                   <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">会員登録</a>
                   </li>
                   <li class="nav-item mr-5">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
