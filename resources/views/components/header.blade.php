@@ -43,10 +43,13 @@
                     <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-shopping-cart"></i></a>
                   </li>
                 @else
-                  <li class="nav-item mr-5">
+                <li class="nav-item mr-5">
+                    <a href="{{ route('hobbies.create') }}"> 投稿する</a>
+                    
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       ログアウト
                     </a>
+
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf

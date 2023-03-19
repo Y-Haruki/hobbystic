@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('hobbies.create') }}"> 投稿する</a>
-<hr>
+
 
 <div class="container hobby-index-container">
   <div class="row justify-content-center">
