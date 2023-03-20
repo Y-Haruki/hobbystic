@@ -10,14 +10,14 @@
             <input class="form-control hobbystic-header-search-input" placeholder="キーワードで検索">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon">button</i></button>
+            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
           </div>
 
           <div class="col-auto">
             <input class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon">button</i></button>
+            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
           </div>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

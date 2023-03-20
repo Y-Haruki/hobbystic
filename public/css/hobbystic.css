@@ -50,3 +50,8 @@
   height: calc(100% / 3);
   text-align: center;
 }
+
+/* 投稿作成create */
+.create-textarea {
+  font-size: 100%;
+}
