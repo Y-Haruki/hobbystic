@@ -82,7 +82,9 @@ class HobbyController extends Controller
     public function edit(Hobby $hobby)
     {
         //
-        return view('hobbies.edit', compact('hobby'));
+        $categories = Category::all();
+
+        return view('hobbies.edit', compact('hobby', 'categories'));
     }
 
     /**
@@ -99,7 +101,11 @@ class HobbyController extends Controller
         $hobby->title = $request->input('title');
         $hobby->image = $request->input('image');
         $hobby->content = $request->input('content');
+        $hobby->category_id = $request->input('category_id');
         $hobby->update();
+
+        // category_hobbyのテーブルにも更新される
+        $hobby->categories()->sync($request->input('category_id'));
 
         return to_route('hobbies.index');
     }
@@ -114,6 +120,8 @@ class HobbyController extends Controller
     {
         //
         $hobby->delete();
+        // category_hobbyのテーブルにも更新される
+        $hobby->categories()->detach($hobby->category_id);
 
         return to_route('hobbies.index');
     }
