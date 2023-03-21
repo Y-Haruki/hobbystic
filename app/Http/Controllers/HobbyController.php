@@ -54,6 +54,7 @@ class HobbyController extends Controller
         $hobby->category_id = $request->input('category_id');
         $hobby->save();
 
+        // category_hobbyのテーブルにも追記される
         $hobby->categories()->attach($request->input('category_id'));
 
         return to_route('hobbies.index');

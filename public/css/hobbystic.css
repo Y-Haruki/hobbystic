@@ -55,3 +55,9 @@
 .create-textarea {
   font-size: 100%;
 }
+
+/* 投稿詳細show */
+.show-content {
+  border: solid 1px #beeebf;
+  height: 200px;
+}
