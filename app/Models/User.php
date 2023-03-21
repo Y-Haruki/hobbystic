@@ -23,6 +23,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token) {
         $this->notify(new CustomResetPassword($token));
     }
+
+    public function hobbies()
+    {
+        return $this->hasMany('App\Models\Hobby');
+    }
     /**
      * The attributes that are mass assignable.
      *
