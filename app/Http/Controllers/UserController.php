@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Hobby;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,8 +13,9 @@ class UserController extends Controller
     public function mypage()
     {
         $user = Auth::user();
+        $hobbies = Hobby::all();
 
-        return view('users.mypage', compact('user'));
+        return view('users.mypage', compact('user', 'hobbies'));
     }
     
 

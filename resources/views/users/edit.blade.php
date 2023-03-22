@@ -29,25 +29,9 @@
     <a href="{{ route('mypage.edit') }}" class="col-3">会員情報編集</a>
     <a href="{{ route('logout') }}" class="col-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
   </div>
-
-  <hr>
   
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <div class="d-flex flex-wrap">
-        @foreach ($hobbies as $hobby)
-        <div class="item">
-          <a href="{{ route('hobbies.show', $hobby->id) }}">
-            <div class="hobby-image">
-              {{ $hobby->image }}
-            </div>
-            <h3 class="hobby-title">{{ $hobby->title }}</h3>
-          </a>
-        </div>
-        @endforeach
-      </div>
-    </div>
-  </div>
+  <hr>
+
 </div>
 
 @endsection
