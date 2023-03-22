@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,12 @@ Route::get('/', function () {
 // // 投稿の削除機能
 // Route::delete('/hobbies/{post}', [PostController::class, 'destroy'])->name('hobbies.destroy');
 // // 
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('users/mypage', 'mypage')->name('mypage');
+    Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
+    Route::put('users/mypage', 'update')->name('mypage.update');
+});
 
 Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);

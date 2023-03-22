@@ -4,12 +4,14 @@
 
 <div class="container">
   <div>
-    <a href="{{ route('hobbies.index') }}" class="h3">投稿一覧</a><span class="h3">&gt;詳細</span>
+    <a href="{{ route('hobbies.index') }}" class="h2">投稿一覧</a><span class="h3">&gt;詳細</span>
   </div>
   <div class="container-show border p-2 mt-2">
     <div class="d-flex justify-content-between">
       <div>
-        <a href="">カテゴリー</a>
+        @foreach($categories as $category)
+          <a href="">{{ $category->name }}</a>
+        @endforeach
       </div>
       <div>{{ $hobby->created_at }}</div>
     </div>

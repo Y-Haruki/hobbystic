@@ -70,7 +70,9 @@ class HobbyController extends Controller
     public function show(Hobby $hobby)
     {
         //
-        return view('hobbies.show', compact('hobby'));
+        $categories = $hobby->categories;
+
+        return view('hobbies.show', compact('hobby', 'categories'));
     }
 
     /**
