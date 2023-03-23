@@ -49,6 +49,7 @@ class UserController extends Controller
         $user->email = $request->input('email') ? $request->input('email') : $user->email;
         $user->icon = $request->input('icon') ? $request->input('icon') : $user->email;
         $user->image = $request->input('image') ? $request->input('image') : $user->email;
+        $user->update();
 
         return to_route('mypage');
     }
