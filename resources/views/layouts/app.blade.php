@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://kit.fontawesome.com/3efd97e294.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/hobbystic.css') }}" rel="stylesheet">

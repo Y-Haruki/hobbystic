@@ -28,6 +28,9 @@
     <a href="" class="col-3">お気に入り</a>
     <a href="{{ route('mypage.edit') }}" class="col-3">会員情報編集</a>
     <a href="{{ route('logout') }}" class="col-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
   </div>
 
   <hr>
