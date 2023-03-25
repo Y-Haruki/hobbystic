@@ -11,7 +11,8 @@
         <div class="item">
           <a href="{{ route('hobbies.show', $hobby->id) }}">
             <div class="hobby-image">
-              {{ $hobby->image }}
+              <img src="{{ asset('images/'.$hobby->image) }}" alt="" width="100%" height="100%">
+              <!-- {{ $hobby->image }} -->
             </div>
             <h3 class="hobby-title">{{ $hobby->title }}</h3>
           </a>
