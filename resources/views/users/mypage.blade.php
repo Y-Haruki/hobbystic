@@ -5,15 +5,14 @@
 <div class="container">
   <h2>マイページ</h2>
   <div class="cover-image">
-    {{ $user->image }}カバー写真
+    <img src="{{ asset('images/default_image.png') }}" alt="" width="100%" height="100%">
   </div>
-  <div class="d-flex justify-content-around">
-    <div>
-      <i class="fas fa-user fa-3x"></i>
-      {{ $user->icon }}ユーザアイコン
+  <div class="d-flex justify-content-around mt-3 icon-and-name">
+    <div class="rounded-circle icon-image">
+      <img src="{{ asset('images/default_icon.png') }}" alt="" class="">
     </div>
-    <div>
-      <div>{{ $user->name }}</div>
+    <div class="name-and-follow">
+      <div class="user-name">{{ $user->name }}</div>
       <div>
         <a href="">フォロー</a>
         <a href="">フォロワー</a>

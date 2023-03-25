@@ -61,3 +61,47 @@
   border: solid 1px #beeebf;
   height: 200px;
 }
+
+/* マイページ */
+.cover-image {
+  width: 100%;
+  height: 220px;
+}
+
+.cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon-image {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.icon-image img {
+  display: block;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
+.icon-and-name {
+  align-items: center;
+}
+
+.name-and-follow {
+  
+}
+
+.user-name {
+  font-size: 28px;
+}
+
