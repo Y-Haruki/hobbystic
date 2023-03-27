@@ -55,6 +55,7 @@ class HobbyController extends Controller
         $name = date('Ymd_His').'_'.$original;
         request()->file('image')->move('images',$name);
         $hobby->image = $name;
+        
         $hobby->content = $request->input('content');
         $hobby->category_id = $request->input('category_id');
         $hobby->save();
@@ -106,7 +107,13 @@ class HobbyController extends Controller
         //
         $hobby->name = $request->input('name');
         $hobby->title = $request->input('title');
-        $hobby->image = $request->input('image');
+        // $hobby->image = $request->input('image');
+
+        $original = request()->file('image')->getClientOriginalName();
+        $name = date('Ymd_His').'_'.$original;
+        request()->file('image')->move('images',$name);
+        $hobby->image = $name;
+
         $hobby->content = $request->input('content');
         $hobby->category_id = $request->input('category_id');
         $hobby->update();

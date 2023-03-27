@@ -6,7 +6,7 @@
   <a href="{{ route('hobbies.show', $hobby->id) }}">&gt; 戻る</a>
   <h2>投稿編集</h2>
   
-  <form action="{{ route('hobbies.update', $hobby->id) }}" method='POST'>
+  <form action="{{ route('hobbies.update', $hobby->id) }}" method='POST' enctype="multipart/form-data">
     @csrf
     @method('PUT')
   
