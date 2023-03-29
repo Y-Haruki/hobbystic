@@ -19,7 +19,8 @@
   
   <form method="POST" action="{{ route('mypage') }}">
     @csrf
-    <input type="hidden" name="_method" value="PUT">
+    @method('PATCH')
+    <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <div class="cover-image">
       {{ $user->image }}カバー写真
       <label for="image">カバー写真を設定してください</label>
