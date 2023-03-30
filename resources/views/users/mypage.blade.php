@@ -5,11 +5,19 @@
 <div class="container">
   <h2>マイページ</h2>
   <div class="cover-image">
+    @if ($user->image === 'default_image.png')
     <img src="{{ asset('images/default_image.png') }}" alt="" width="100%" height="100%">
+    @else
+    <img src="{{ asset('images/'.$user->image) }}" alt="" width="100%" height="100%">
+    @endif
   </div>
   <div class="d-flex justify-content-around mt-3 icon-and-name">
     <div class="rounded-circle icon-image">
+      @if ($user->icon === 'default_icon.png')
       <img src="{{ asset('images/default_icon.png') }}" alt="" class="">
+      @else
+      <img src="{{ asset('images/'.$user->icon) }}" alt="" width="100%" height="100%">
+      @endif
     </div>
     <div class="name-and-follow">
       <div class="user-name">{{ $user->name }}</div>
