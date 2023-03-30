@@ -26,16 +26,20 @@
     <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <div class="cover-image">
       <img src="{{ asset('images/'.$user->image) }}" alt="" width="100%" height="100%">
-      <!-- <label for="image">カバー写真を設定してください</label> -->
-      <input type="file" name='image' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
+      <label class="edit-button">
+        <input type="file" name='image' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
+        <i class="fas fa-pencil-alt"></i>
+      </label>
     </div>
-    <div class="d-flex justify-content-center">
-      <div>
+    <div class="d-flex justify-content-around mt-5">
+      <div class="icon-container">
         <div class="rounded-circle icon-image">
           <img src="{{ asset('images/'.$user->icon) }}" alt="" width="100%" height="100%">
         </div>
-        <!-- <label for="image">アイコン写真を設定してください</label> -->
-        <input type="file" name='icon' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
+        <label class="edit-icon-button">
+          <input type="file" name='icon' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
+          <i class="fas fa-pencil-alt"></i>
+        </label>
       </div>
       <div>
         <p class="mb-0">ユーザ名</p>
