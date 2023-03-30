@@ -47,8 +47,24 @@ class UserController extends Controller
 
         $user->name = $request->input('name') ? $request->input('name') : $user->name;
         $user->email = $request->input('email') ? $request->input('email') : $user->email;
-        $user->icon = $request->input('icon') ? $request->input('icon') : $user->email;
-        $user->image = $request->input('image') ? $request->input('image') : $user->email;
+        // $user->image = $request->input('image') ? $request->input('image') : $user->image;
+        
+        // editのformにenctype="multipart/form-data"を付けるのを忘れずに
+        if ($request->hasFile('image')) {
+            $original = $request->file('image')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            $request->file('image')->move('images',$name);
+            $user->image = $name;
+        }
+
+        if ($request->hasFile('icon')) {
+            $originalicon = $request->file('icon')->getClientOriginalName();
+            $nameicon = date('Ymd_His').'_'.$originalicon;
+            $request->file('icon')->move('images',$nameicon);
+            $user->icon = $nameicon;
+        }
+        
+        // $user->icon = $request->input('icon') ? $request->input('icon') : $user->icon;
         $user->update();
 
         return to_route('mypage');

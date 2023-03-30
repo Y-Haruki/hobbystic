@@ -17,20 +17,21 @@
   
   <h4>プロフィール情報</h4>
   
-  <form method="POST" action="{{ route('mypage') }}">
+  <form method="POST" action="{{ route('mypage') }}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <div class="cover-image">
-      {{ $user->image }}カバー写真
-      <label for="image">カバー写真を設定してください</label>
+      <img src="{{ asset('images/'.$user->image) }}" alt="" width="100%" height="100%">
+      <!-- <label for="image">カバー写真を設定してください</label> -->
       <input type="file" name='image' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
     </div>
     <div class="d-flex justify-content-center">
       <div>
-        <i class="fas fa-user fa-3x"></i>
-        {{ $user->icon }}ユーザアイコン
-        <label for="image">アイコン写真を設定してください</label>
+        <div class="rounded-circle icon-image">
+          <img src="{{ asset('images/'.$user->icon) }}" alt="" width="100%" height="100%">
+        </div>
+        <!-- <label for="image">アイコン写真を設定してください</label> -->
         <input type="file" name='icon' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
       </div>
       <div>
