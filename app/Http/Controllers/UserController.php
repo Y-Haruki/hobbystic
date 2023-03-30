@@ -7,6 +7,7 @@ use App\Models\Hobby;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -55,6 +56,8 @@ class UserController extends Controller
             $name = date('Ymd_His').'_'.$original;
             $request->file('image')->move('images',$name);
             $user->image = $name;
+
+            // 古いファイルを削除する
         }
 
         if ($request->hasFile('icon')) {
