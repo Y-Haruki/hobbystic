@@ -7,6 +7,7 @@ use App\Models\Category_Hobby;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HobbyController extends Controller
 {
@@ -53,8 +54,10 @@ class HobbyController extends Controller
         // $hobby->image = $request->file('image')->store('public/image');
         $original = request()->file('image')->getClientOriginalName();
         $name = date('Ymd_His').'_'.$original;
-        request()->file('image')->move('images',$name);
-        $hobby->image = $name;
+        // request()->file('image')->move('storage/images',$name);
+        request()->file('image')->storeAs('public/images',$name);
+        
+        $hobby->image = 'storage/images/' . $name;
         
         $hobby->content = $request->input('content');
         // 3/30削除
@@ -114,10 +117,14 @@ class HobbyController extends Controller
         $hobby->title = $request->input('title');
         // $hobby->image = $request->input('image');
 
+        Storage::disk('public')->delete('images/' . $hobby->image);
         $original = request()->file('image')->getClientOriginalName();
         $name = date('Ymd_His').'_'.$original;
-        request()->file('image')->move('images',$name);
-        $hobby->image = $name;
+        // request()->file('image')->move('storage/images',$name);
+        // $hobby->image = $name;
+        request()->file('image')->storeAs('public/images',$name);
+        
+        $hobby->image = 'storage/images/' . $name;
 
         $hobby->content = $request->input('content');
         // 3/30削除
