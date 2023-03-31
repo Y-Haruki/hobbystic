@@ -57,11 +57,16 @@ class HobbyController extends Controller
         $hobby->image = $name;
         
         $hobby->content = $request->input('content');
-        $hobby->category_id = $request->input('category_id');
+        // 3/30削除
+        // $hobby->category_id = $request->input('category_id');
         $hobby->save();
 
         // category_hobbyのテーブルにも追記される
-        $hobby->categories()->attach($request->input('category_id'));
+        // $hobby->categories()->attach($request->input('category_id'));
+        $categories = $request->input('category_id');
+        foreach ($categories as $category) {
+            $hobby->categories()->attach($category);
+        }
 
         return to_route('hobbies.index');
 
@@ -115,7 +120,8 @@ class HobbyController extends Controller
         $hobby->image = $name;
 
         $hobby->content = $request->input('content');
-        $hobby->category_id = $request->input('category_id');
+        // 3/30削除
+        // $hobby->category_id = $request->input('category_id');
         $hobby->update();
 
         // category_hobbyのテーブルにも更新される

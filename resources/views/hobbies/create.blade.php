@@ -15,7 +15,7 @@
     </div>
     <div>
       <p class="mb-0 mt-4">カテゴリーを選択してください</p>
-      <select name="category_id" class="mb-4">
+      <select name="category_id[]" class="mb-4" multiple>
         @foreach ($categories as $category)
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
