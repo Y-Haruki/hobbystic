@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,7 @@ Route::controller(UserController::class)->group(function () {
 
 Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
+
+Route::resource('categories', CategoryController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
