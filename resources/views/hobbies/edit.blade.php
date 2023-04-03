@@ -21,6 +21,19 @@
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
       </select>
+      <script>
+      $(function () {
+        $('select').multipleSelect({
+          width: 200,
+          formatSelectAll: function() {
+            return 'すべて';
+          },
+          formatAllSelected: function() {
+            return '全て選択されています';
+          },
+        });
+      });
+      </script>
     </div>
     <div>
       <label for="title1">タイトル</label>

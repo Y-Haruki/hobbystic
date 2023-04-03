@@ -17,8 +17,14 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/3efd97e294.js" crossorigin="anonymous"></script>
 
+    <!-- 4/3追記 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/hobbystic.css') }}" rel="stylesheet">
+    <!-- 4/3追記 -->
+    <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
 </head>
 <body>
     <div id="app">

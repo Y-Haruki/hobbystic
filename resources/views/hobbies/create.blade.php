@@ -20,6 +20,20 @@
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
       </select>
+      <!-- <a href="#" id="add-category-link">新しい要素を追加する</a> -->
+      <script>
+      $(function () {
+        $('select').multipleSelect({
+          width: 200,
+          formatSelectAll: function() {
+            return 'すべて';
+          },
+          formatAllSelected: function() {
+            return '全て選択されています';
+          },
+        });
+      });
+      </script>
     </div>
     <div>
       <label for="title1">タイトル</label>
@@ -41,5 +55,5 @@
     </div>
   </form>
 </div>
-
+<!-- <script src="../../js/main.js"></script> -->
 @endsection
