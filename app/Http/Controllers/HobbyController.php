@@ -57,7 +57,8 @@ class HobbyController extends Controller
         // request()->file('image')->move('storage/images',$name);
         request()->file('image')->storeAs('public/images',$name);
         
-        $hobby->image = 'storage/images/' . $name;
+        // $hobby->image = 'storage/images/' . $name;
+        $hobby->image =  $name;
         
         $hobby->content = $request->input('content');
         // 3/30削除
@@ -123,9 +124,11 @@ class HobbyController extends Controller
         $name = date('Ymd_His').'_'.$original;
         // request()->file('image')->move('storage/images',$name);
         // $hobby->image = $name;
+        
+        // request()->file('image')->storeAs('public/images',$name);
         request()->file('image')->storeAs('public/images',$name);
         
-        $hobby->image = 'storage/images/' . $name;
+        $hobby->image =  $name;
 
         $hobby->content = $request->input('content');
         // 3/30削除
