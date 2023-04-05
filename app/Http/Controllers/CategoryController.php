@@ -31,6 +31,9 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        $hobbies = $category->hobbies;
+
+        return view('categories.show', compact('category', 'hobbies'));
     }
 
 }
