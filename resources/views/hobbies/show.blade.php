@@ -21,7 +21,7 @@
     </div>
     <div class="d-flex justify-content-around">
       <div class="image">
-        <img src="{{ asset('images/'.$hobby->image) }}" alt="" width="100" height="100">
+        <img src="{{ asset('storage/images/'.$hobby->image) }}" alt="" width="100" height="100">
       </div>
       <div class="title">
         {{ $hobby->title }}
