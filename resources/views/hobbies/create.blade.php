@@ -35,6 +35,7 @@
       });
       </script>
     </div>
+    <a href="{{ route('categories.create') }}">カテゴリ作成</a>
     <div>
       <label for="title1">タイトル</label>
       <input type="text" name='title' class="w-50 mb-4" id='title1' placeholder='タイトルを入力してください（必須）'>
@@ -55,5 +56,4 @@
     </div>
   </form>
 </div>
-<!-- <script src="../../js/main.js"></script> -->
 @endsection

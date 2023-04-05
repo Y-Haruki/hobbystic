@@ -21,6 +21,20 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+        
+        $categories = Category::all();
+
+        return view('categories.create', compact('categories'));
+    }
+
 
     /**
      * Display the specified resource.
