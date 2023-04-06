@@ -35,6 +35,25 @@ class CategoryController extends Controller
         return view('categories.create', compact('categories'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // 
+        $category = new Category();
+
+        $category->name = $request->input('name');
+        $category->image = $request->input('image');
+
+        $category->save();
+
+        return to_route('hobbies.create');
+    }
+
 
     /**
      * Display the specified resource.
