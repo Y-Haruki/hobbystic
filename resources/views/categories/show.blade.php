@@ -3,6 +3,7 @@
 @section('content')
 <div class="container hobby-index-container">
   <h2>{{ $category->name }}&gt;投稿一覧</h2>
+  <a href="{{ route('categories.edit', $category->id) }}">カテゴリ編集</a>
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="d-flex flex-wrap">

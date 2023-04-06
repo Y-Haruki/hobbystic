@@ -49,7 +49,7 @@
         <div class="item">
           <a href="{{ route('hobbies.show', $hobby->id) }}">
             <div class="hobby-image">
-              {{ $hobby->image }}
+              <img src="{{ asset('storage/images/'.$hobby->image) }}" alt="" width="100%" height="100%">
             </div>
             <h3 class="hobby-title">{{ $hobby->title }}</h3>
           </a>
