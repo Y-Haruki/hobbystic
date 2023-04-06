@@ -7,9 +7,11 @@
     <div class="col-12">
       <div class="d-flex flex-wrap">
         @foreach ($categories as $category)
-        <div class="category-item text-center">
-          {{ $category->image }}
-          <a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a>
+        <div class="category-item text-center d-flex">
+          <img src="{{ asset('storage/images/'.$category->image) }}" alt="" width="100%" height="100%">
+          <div class="mt-2">
+            <a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a>
+          </div>
         </div>
         @endforeach
       </div>

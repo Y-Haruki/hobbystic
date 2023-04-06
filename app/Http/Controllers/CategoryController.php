@@ -47,7 +47,12 @@ class CategoryController extends Controller
         $category = new Category();
 
         $category->name = $request->input('name');
-        $category->image = $request->input('image');
+        // $category->image = $request->input('image');
+
+        $original = request()->file('image')->getClientOriginalName();
+        $name = date('Ymd_His').'_'.$original;
+        request()->file('image')->storeAs('public/images', $name);
+        $category->image = $name;
 
         $category->save();
 

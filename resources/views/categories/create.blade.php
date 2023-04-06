@@ -6,7 +6,7 @@
   <a href="{{ route('hobbies.create') }}">&gt; 戻る</a>
   <h2>カテゴリ作成</h2>
 
-  <form action="{{ route('categories.store') }}" method='POST'>
+  <form action="{{ route('categories.store') }}" method='POST' enctype="multipart/form-data">
     @csrf
 
     <div>
