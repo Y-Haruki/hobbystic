@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class HobbyController extends Controller
 {
@@ -48,6 +49,7 @@ class HobbyController extends Controller
     {
         //
         $hobby = new Hobby();
+        $hobby->user_id = Auth::id();
         $hobby->name = $request->input('name');
         $hobby->title = $request->input('title');
         // $hobby->image = $request->input('image');

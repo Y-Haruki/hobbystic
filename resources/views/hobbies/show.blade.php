@@ -33,14 +33,16 @@
     <div>場所</div>
     <div>チャット機能</div>
     <div class="d-flex justify-content-end">
-      <div>
-        <a href="{{ route('hobbies.edit', $hobby->id) }}">編集する</a>
-      </div>
-      <form action="{{ route('hobbies.destroy', $hobby->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type='submit'>Delete</button>
-      </form>
+      @if ($hobby->user_id == auth()->id())
+        <div>
+          <a href="{{ route('hobbies.edit', $hobby->id) }}">編集する</a>
+        </div>
+        <form action="{{ route('hobbies.destroy', $hobby->id) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type='submit'>Delete</button>
+        </form>
+      @endif
     </div>
   </div>
 </div>

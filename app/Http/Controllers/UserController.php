@@ -14,8 +14,8 @@ class UserController extends Controller
     public function mypage()
     {
         $user = Auth::user();
-        $hobbies = Hobby::all();
-        // $hobbies = $user->hobbies;
+        // $hobbies = Hobby::all();
+        $hobbies = $user->hobbies;
 
         return view('users.mypage', compact('user', 'hobbies'));
     }

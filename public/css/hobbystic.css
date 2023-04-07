@@ -250,3 +250,7 @@
   text-decoration: none;
   color: #000;
 }
+
+.category-item div a:hover {
+  opacity: 0.5;
+}
