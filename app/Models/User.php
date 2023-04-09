@@ -28,6 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Models\Hobby');
     }
+
+    public function category_chats()
+    {
+        return $this->hasMany('App\Models\CategoryChat');
+    }
     /**
      * The attributes that are mass assignable.
      *

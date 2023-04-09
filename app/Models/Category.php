@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Models\Hobby');
     }
+
+    public function category_chats()
+    {
+        return $this->hasMany('App\Models\CategoryChat');
+    }
 }
