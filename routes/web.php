@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,17 @@ Auth::routes(['verify' => true]);
 
 Route::resource('categories', CategoryController::class);
 
+// Route::resource('category_chats', CategoryChatController::class);
+
+Route::controller(CategoryChatController::class)->group(function () {
+    Route::get('/categories/{category}/category_chats', 'index')->name('categories.category_chats.index');
+
+    Route::post('/categories/{category}/category_chats', 'store')->name('categories.category_chats.store');
+});
+
+// 4/11やること：Route::put('/categories/{category}/category_chats', store)～で投稿できるようにする
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// 1:35

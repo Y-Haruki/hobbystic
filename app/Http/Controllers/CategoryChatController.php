@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoryChat;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryChatController extends Controller
 {
@@ -13,9 +15,13 @@ class CategoryChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
         //
+        $categories = Category::all();
+        $category_chats = CategoryChat::all();
+
+        return view('category_chats.index', compact('category_chats', 'category'));
     }
 
     /**
@@ -34,9 +40,18 @@ class CategoryChatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
         //
+        $categoryChat = new CategoryChat();
+        $categoryChat->chat = $request->input('chat');
+        $categoryChat->user_id = Auth::id();
+        $categoryChat->category_id = $category->id;
+        $categoryChat->save();
+
+        return to_route('categories.category_chats.index', $category->id);
+        // return redirect()->route('categories.category_chats.index', $category->id);
+
     }
 
     /**
