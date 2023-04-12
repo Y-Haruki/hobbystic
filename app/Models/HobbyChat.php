@@ -5,22 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hobby extends Model
+class HobbyChat extends Model
 {
     use HasFactory;
-
-    public function categories()
-    {
-        return $this->belongsToMany('App\Models\Category');
-    }
 
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function hobby_chats()
+    public function hobby()
     {
-        return $this->hasMany('App\Models\HobbyChat');
+        return $this->belongsTo('App\Models\Hobby');
     }
 }
