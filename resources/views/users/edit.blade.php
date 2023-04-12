@@ -25,7 +25,12 @@
     @method('PATCH')
     <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <div class="cover-image">
-      <img src="{{ asset('images/'.$user->image) }}" alt="" width="100%" height="100%">
+      @if ($user->image === 'default_image')
+      <img src="{{ asset('images/default_image.png') }}" alt="" width="100%" height="100%">
+      @else
+      <img src="{{ asset('storage/images/'.$user->image) }}" alt="" width="100%" height="100%">
+      @endif
+      <!-- <img src="{{ asset('images/'.$user->image) }}" alt="" width="100%" height="100%"> -->
       <label class="edit-button">
         <input type="file" name='image' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>
         <i class="fas fa-pencil-alt"></i>
@@ -34,7 +39,12 @@
     <div class="d-flex justify-content-around mt-5">
       <div class="icon-container">
         <div class="rounded-circle icon-image">
-          <img src="{{ asset('images/'.$user->icon) }}" alt="" width="100%" height="100%">
+          <!-- <img src="{{ asset('images/'.$user->icon) }}" alt="" width="100%" height="100%"> -->
+          @if ($user->icon === 'default_icon')
+          <img src="{{ asset('images/default_icon.png') }}" alt="" class="">
+          @else
+          <img src="{{ asset('storage/images/'.$user->icon) }}" alt="" width="100%" height="100%">
+          @endif
         </div>
         <label class="edit-icon-button">
           <input type="file" name='icon' class="mb-4" accept='.png, .jpg, .jpeg, .pdf, .doc'>

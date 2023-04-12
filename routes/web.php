@@ -5,6 +5,7 @@ use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryChatController;
+use App\Http\Controllers\HobbyChatController;
 
 /*
 |--------------------------------------------------------------------------

@@ -7,6 +7,7 @@ use App\Models\Hobby;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -53,18 +54,22 @@ class UserController extends Controller
         
         // editのformにenctype="multipart/form-data"を付けるのを忘れずに
         if ($request->hasFile('image')) {
+            Storage::disk('public')->delete('images/' . $user->image);
             $original = $request->file('image')->getClientOriginalName();
             $name = date('Ymd_His').'_'.$original;
-            $request->file('image')->move('images',$name);
+            // $request->file('image')->move('images',$name);
+            request()->file('image')->storeAs('public/images',$name);
             $user->image = $name;
 
             // 古いファイルを削除する
         }
 
         if ($request->hasFile('icon')) {
+            Storage::disk('public')->delete('images/' . $user->icon);
             $originalicon = $request->file('icon')->getClientOriginalName();
             $nameicon = date('Ymd_His').'_'.$originalicon;
-            $request->file('icon')->move('images',$nameicon);
+            // $request->file('icon')->move('images',$nameicon);
+            request()->file('icon')->storeAs('public/images',$nameicon);
             $user->icon = $nameicon;
         }
         
