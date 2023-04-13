@@ -52,6 +52,10 @@ Route::controller(UserController::class)->group(function () {
     Route::patch('users/mypage', 'update')->name('mypage.update');
 
     Route::put('users/mypage', 'update_password')->name('mypage.update_password');
+
+    // 退会機能（要確認）
+    Route::delete('users/mypage', 'destroy')->name('mypage.destroy');
+    // 
 });
 
 Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);

@@ -92,4 +92,22 @@ class UserController extends Controller
 
         return to_route('mypage');
     }
+
+    // 退会機能（要確認）
+
+    public function destroy(Request $request)
+    {
+        $user = Auth::user();
+
+        // if ($user->deleted_flag) {
+        //     $user->deleted_flag = false;
+        // } else {
+        //     $user->deleted_flag = true;
+        // }
+        $user->update();
+
+        Auth::logout();
+        return redirect('/');
+    }
+    // 
 }
