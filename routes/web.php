@@ -76,4 +76,4 @@ Route::controller(CategoryChatController::class)->group(function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// 1:35
+Route::resource('/hobby_chats', HobbyChatController::class);
