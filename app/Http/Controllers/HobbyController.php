@@ -158,4 +158,11 @@ class HobbyController extends Controller
 
         return to_route('hobbies.index');
     }
+
+    public function favorite(Hobby $hobby)
+    {
+        Auth::user()->togglefavorite($hobby);
+
+        return back();
+    }
 }

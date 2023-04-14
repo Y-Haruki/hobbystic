@@ -18,10 +18,23 @@
     <div class="d-flex justify-content-end">
       <div>ユーザ名</div>
       <div>アイコン</div>
+      @if ($hobby->user_id != auth()->id())
+        @if($hobby->isFavoritedBy(Auth::user()))
+        <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
+            <i class="fa fa-heart"></i>
+            お気に入り解除
+        </a>
+        @else
+        <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
+            <i class="fa fa-heart"></i>
+            お気に入り登録
+        </a>
+        @endif
+      @endif
     </div>
     <div class="d-flex justify-content-around">
       <div class="image">
-        <img src="{{ asset('storage/images/'.$hobby->image) }}" alt="" width="100" height="100">
+        <img src="{{ asset('storage/images/'.$hobby->image) }}"  width="100" height="100">
       </div>
       <div class="title">
         {{ $hobby->title }}

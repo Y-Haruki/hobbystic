@@ -109,5 +109,14 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
-    // 
+    
+    public function favorite()
+    {
+        $user = Auth::user();
+
+        $favorites = $user->favorites(Hobby::class)->get();
+
+        return view('users.favorite', compact('favorites'));
+    }
+    
 }

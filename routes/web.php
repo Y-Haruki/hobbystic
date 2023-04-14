@@ -53,13 +53,14 @@ Route::controller(UserController::class)->group(function () {
 
     Route::put('users/mypage', 'update_password')->name('mypage.update_password');
 
-    // 退会機能（要確認）
+    
     Route::delete('users/mypage', 'destroy')->name('mypage.destroy');
-    // 
+    Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
 });
 
 Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
+Route::get('hobbies/{hobby}/favorite', [HobbyController::class, 'favorite'])->name('hobbies.favorite');
 
 Route::resource('categories', CategoryController::class);
 
