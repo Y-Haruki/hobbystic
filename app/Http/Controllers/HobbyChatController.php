@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HobbyChat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HobbyChatController extends Controller
 {
@@ -16,7 +17,13 @@ class HobbyChatController extends Controller
     public function index()
     {
         //
-        return view('hobby_chats/index');
+        // データーベースの件数を取得
+        $length = HobbyChat::all()->count();
+
+        // 表示する件数を代入
+        $display = 5;
+        $hobby_chats = HobbyChat::offset($length-$display)->limit($display)->get();
+        return view('hobby_chats.index', compact('hobby_chats'));
     }
 
     /**
@@ -38,6 +45,12 @@ class HobbyChatController extends Controller
     public function store(Request $request)
     {
         //
+        $hobby_chat = new HobbyChat;
+        $hobby_chat->hobby_id = 1;
+        $hobby_chat->user_id = Auth::id();
+        $form = $request->all();
+        $hobby_chat->fill($form)->save();
+        return redirect('hobby_chats');
     }
 
     /**

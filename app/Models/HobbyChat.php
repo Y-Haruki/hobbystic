@@ -9,6 +9,15 @@ class HobbyChat extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['chat', 'user_id'];
+
+    public function scopeGetData($query)
+    {
+        $user = User::find($this->user_id);
+        $user_name = $user->name;
+        return $this->created_at . ' @' . $user_name . ' ' . $this->chat;
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');

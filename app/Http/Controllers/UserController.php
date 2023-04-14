@@ -104,7 +104,7 @@ class UserController extends Controller
         // } else {
         //     $user->deleted_flag = true;
         // }
-        $user->update();
+        $user->delete();
 
         Auth::logout();
         return redirect('/');

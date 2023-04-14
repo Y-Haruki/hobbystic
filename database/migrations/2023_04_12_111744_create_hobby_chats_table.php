@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hobby_chats', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->text('chat');
             $table->integer('hobby_id')->unsigned();
             $table->integer('user_id')->unsigned();
