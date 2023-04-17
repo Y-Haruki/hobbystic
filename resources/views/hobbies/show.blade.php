@@ -44,7 +44,7 @@
       {{ $hobby->content }}
     </div>
     <div>場所</div>
-    <div>チャット機能</div>
+    <a href="{{ route('hobby_chats.index') }}">チャット機能</a>
     <div class="d-flex justify-content-end">
       @if ($hobby->user_id == auth()->id())
         <div>
