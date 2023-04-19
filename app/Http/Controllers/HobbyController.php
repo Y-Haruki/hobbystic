@@ -88,6 +88,7 @@ class HobbyController extends Controller
     public function show(Hobby $hobby)
     {
         //
+        // hobbyと紐づいているcategoryを取得
         $categories = $hobby->categories;
 
         return view('hobbies.show', compact('hobby', 'categories'));

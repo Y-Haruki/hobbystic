@@ -12,6 +12,27 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        //
+        $hobbies = $user->hobbies;
+
+        return view('users.show', compact('user', 'hobbies'));
+    }
+
     public function mypage()
     {
         $user = Auth::user();
