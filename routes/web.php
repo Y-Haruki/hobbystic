@@ -51,6 +51,9 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
     Route::patch('users/mypage', 'update')->name('mypage.update');
 
+    Route::get('users', 'index')->name('users.index');
+    Route::get('users/{user}', 'show')->name('users.show');
+
     Route::put('users/mypage', 'update_password')->name('mypage.update_password');
 
     
@@ -78,3 +81,7 @@ Route::controller(CategoryChatController::class)->group(function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('hobby_chats', HobbyChatController::class);
+// Route::post('/add', 'HobbyChatController@add')->name('add');
+Route::post('/add', [HobbyChatController::class, 'add'])->name('add');
+Route::get('/result/ajax', [HobbyChatController::class, 'getData']);
+

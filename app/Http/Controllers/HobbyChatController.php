@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HobbyChat;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,15 +18,32 @@ class HobbyChatController extends Controller
     public function index()
     {
         //
-        // データーベースの件数を取得
-        $length = HobbyChat::all()->count();
-
-        // 表示する件数を代入
-        $display = 5;
-        $hobby_chats = HobbyChat::offset($length-$display)->limit($display)->get();
+        $hobby_chats = HobbyChat::all();
         return view('hobby_chats.index', compact('hobby_chats'));
     }
 
+    public function add(Request $request)
+    {
+        $user = Auth::user();
+        $chat = $request->input('chat');
+        HobbyChat::create([
+            'user_id' => $user->id,
+            // 'name' => $user->name,
+            'chat' => $chat,
+            'hobby_id' => 1//後で変更する
+        ]);
+        return redirect()->route('hobby_chats.index');
+    }
+
+    public function getData()
+    {
+        // $hobby_chats = HobbyChat::orderBy('created_at', 'desc')->get();
+        $hobby_chats = HobbyChat::with('user')->orderBy('created_at', 'desc')->get();
+        // var_dump($hobby_chats);
+        // dd($hobby_chats);
+        $json = ["hobby_chats" => $hobby_chats];
+        return response()->json($json);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -45,12 +63,12 @@ class HobbyChatController extends Controller
     public function store(Request $request)
     {
         //
-        $hobby_chat = new HobbyChat;
-        $hobby_chat->hobby_id = 1;
-        $hobby_chat->user_id = Auth::id();
-        $form = $request->all();
-        $hobby_chat->fill($form)->save();
-        return redirect('hobby_chats');
+        // $hobby_chat = new HobbyChat;
+        // $hobby_chat->hobby_id = 1;
+        // $hobby_chat->user_id = Auth::id();
+        // $form = $request->all();
+        // $hobby_chat->fill($form)->save();
+        // return redirect('hobby_chats');
     }
 
     /**
