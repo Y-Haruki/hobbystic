@@ -10,10 +10,10 @@
     @csrf
     @method('PUT')
   
-    <div>
+    <!-- <div>
       <label>name</label>
       <input type="text" name="name" value="{{ $hobby->name }}">
-    </div>
+    </div> -->
     <div>
       <p class="mb-0 mt-4">カテゴリーを選択してください</p>
       <select name="category_id[]" class="mb-4" multiple>

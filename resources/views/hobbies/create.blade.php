@@ -78,10 +78,10 @@
         });
         </script>
     </div>
-    <div>
+    <!-- <div>
       <label>name</label>
       <input type="text" name="name" placeholder='例）サッカー'>
-    </div>
+    </div> -->
     <!-- <a href="{{ route('categories.create') }}">カテゴリ作成</a> -->
 
     <!-- 開くボタン -->

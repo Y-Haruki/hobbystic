@@ -50,7 +50,7 @@ class HobbyController extends Controller
         //
         $hobby = new Hobby();
         $hobby->user_id = Auth::id();
-        $hobby->name = $request->input('name');
+        // $hobby->name = $request->input('name');
         $hobby->title = $request->input('title');
         // $hobby->image = $request->input('image');
         // $hobby->image = $request->file('image')->store('public/image');
@@ -118,7 +118,7 @@ class HobbyController extends Controller
     public function update(Request $request, Hobby $hobby)
     {
         //
-        $hobby->name = $request->input('name');
+        // $hobby->name = $request->input('name');
         $hobby->title = $request->input('title');
         // $hobby->image = $request->input('image');
 
