@@ -24,7 +24,20 @@
       <div>
         <a href="">フォロー</a>
         <a href="">フォロワー</a>
-        <button class="btn">フォローする</button>
+        @if ($user->id != auth()->id())
+          @if (auth()->user()->isFollowing($user))
+              <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">フォロー解除</button>
+              </form>
+          @else
+              <form action="{{ route('users.follow', $user) }}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-primary">フォローする</button>
+              </form>
+          @endif
+        @endif
       </div>
     </div>
   </div>

@@ -39,6 +39,27 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Models\HobbyChat');
     }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id')->withTimestamps();
+    }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
+
+    public function unfollow(User $user)
+    {
+        return $this->follows()->detach($user);
+    }
+
+    public function isFollowing(User $user)
+    {
+        return $this->follows()->where('user_id', $user->id)->exists();
+    }
+
     /**
      * The attributes that are mass assignable.
      *

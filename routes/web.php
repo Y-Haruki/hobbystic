@@ -61,6 +61,12 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('users/{user}/follow', [UserController::class, 'follow'])->name('users.follow');
+    Route::delete('users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow');
+});
+
+
 Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 Route::get('hobbies/{hobby}/favorite', [HobbyController::class, 'favorite'])->name('hobbies.favorite');
