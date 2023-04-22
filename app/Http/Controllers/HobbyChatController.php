@@ -48,7 +48,6 @@ class HobbyChatController extends Controller
         // } else {
         //     $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->whereIn('user_id', [$user->id, $hobby->user_id] )->with('user')->orderBy('created_at', 'desc')->get();
         // }
-        // $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->with('user')->orderBy('created_at', 'desc')->get();
         // var_dump($hobby_chats);
         // dd($hobby_chats);
         $json = ["hobby_chats" => $hobby_chats];

@@ -30,6 +30,10 @@
     <link href="{{ asset('css/hobbystic.css') }}" rel="stylesheet">
     <!-- 4/3追記 -->
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+
+    <!-- 4/21追記：header_icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -41,6 +45,7 @@
         </main>
     </div>
 
+    <!-- <script src="js/header.js"></script> -->
     @yield('js')
 </body>
 </html>
