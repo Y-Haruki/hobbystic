@@ -1,10 +1,11 @@
+// console.log(Laravel.hobby_id);
 $(function() {
   get_data();
 });
-
+// let id = 2;
 function get_data() {
   $.ajax({
-      url: "result/ajax/",
+      url: "result/ajax/" + Laravel.hobby_id,
       dataType: "json",
       success: data => {
         $("#comment-data")
@@ -27,8 +28,11 @@ function get_data() {
           $("#comment-data").append(html);
         }
       },
-      error: () => {
+      error: (XMLHttpRequest, textStatus, errorThrown) => {
           alert("ajax Error");
+          console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+          console.log("textStatus     : " + textStatus);
+          console.log("errorThrown    : " + errorThrown.message);
       }
   });
 

@@ -88,6 +88,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('hobby_chats', HobbyChatController::class);
 // Route::post('/add', 'HobbyChatController@add')->name('add');
-Route::post('/add', [HobbyChatController::class, 'add'])->name('add');
-Route::get('/result/ajax', [HobbyChatController::class, 'getData']);
+Route::post('hobbies/{hobby}/add', [HobbyChatController::class, 'add'])->name('add');
+Route::get('hobbies/result/ajax/{id}', [HobbyChatController::class, 'getData']);
 

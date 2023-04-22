@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HobbyChat;
+use App\Models\Hobby;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,23 +23,32 @@ class HobbyChatController extends Controller
         return view('hobby_chats.index', compact('hobby_chats'));
     }
 
-    public function add(Request $request)
+    public function add(Request $request, Hobby $hobby)
     {
         $user = Auth::user();
+        // $hobby = Hobby::all();
         $chat = $request->input('chat');
         HobbyChat::create([
             'user_id' => $user->id,
             // 'name' => $user->name,
             'chat' => $chat,
-            'hobby_id' => 1//後で変更する
+            'hobby_id' => $hobby->id//後で変更する
         ]);
-        return redirect()->route('hobby_chats.index');
+        return redirect()->route('hobbies.show', $hobby->id);
     }
 
-    public function getData()
+    public function getData($id)
     {
+        $user = Auth::user();
+        $hobby = Hobby::find($id);
         // $hobby_chats = HobbyChat::orderBy('created_at', 'desc')->get();
-        $hobby_chats = HobbyChat::with('user')->orderBy('created_at', 'desc')->get();
+        $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->with('user')->orderBy('created_at', 'desc')->get();
+        // if('user_id' == $user->id) {
+        //     $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->with('user')->orderBy('created_at', 'desc')->get();
+        // } else {
+        //     $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->whereIn('user_id', [$user->id, $hobby->user_id] )->with('user')->orderBy('created_at', 'desc')->get();
+        // }
+        // $hobby_chats = HobbyChat::where('hobby_id', '=', $id)->with('user')->orderBy('created_at', 'desc')->get();
         // var_dump($hobby_chats);
         // dd($hobby_chats);
         $json = ["hobby_chats" => $hobby_chats];

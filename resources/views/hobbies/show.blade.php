@@ -45,6 +45,28 @@
     </div>
     <div>場所</div>
     <a href="{{ route('hobby_chats.index') }}">チャット機能</a>
+    <div>
+      <div class="chat-container row justify-content-center">
+          <div class="chat-area">
+              <div class="card">
+                  <div class="card-header">Comment</div>
+                  <div class="card-body chat-card">
+                      <div id="comment-data"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <form action="{{route('add', $hobby->id)}}" method="POST">
+          @csrf
+          <div class="comment-container row justify-content-center">
+              <div class="input-group comment-area">
+                  <textarea class="form-control" name="chat" placeholder="push massage (shift + Enter)" aria-label="With textarea" onkeydown="if(event.shiftKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+                  <button type="submit" id="submit" class="btn btn-outline-primary comment-btn" >Submit</button>
+              </div>
+          </div>
+      </form>
+    </div>
     <div class="d-flex justify-content-end">
       @if ($hobby->user_id == auth()->id())
         <div>
@@ -60,4 +82,12 @@
   </div>
 </div>
 
+@endsection
+
+@section('js')
+<script>
+  window.Laravel = {};
+  window.Laravel.hobby_id = @json($hobby->id);
+</script>
+<script src="{{ asset('js/comment.js') }}"></script>
 @endsection
