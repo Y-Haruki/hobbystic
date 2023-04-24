@@ -54,6 +54,9 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users', 'index')->name('users.index');
     Route::get('users/{user}', 'show')->name('users.show');
 
+    Route::get('users/{user}/follows', 'follows')->name('users.follows');
+    Route::get('users/{user}/followers', 'followers')->name('users.followers');
+
     Route::put('users/mypage', 'update_password')->name('mypage.update_password');
 
     

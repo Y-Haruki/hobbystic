@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Hobby;
+use App\Models\FollowUser;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +17,25 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        // $user = Auth::user();
+        
+        // $followers_count = count(FollowUser::where('user_id',$user->id)->get());
+        // $followings_count = count(FollowUser::where('follower_id',$user->id)->get());
         return view('users.index', compact('users'));
+    }
+
+    public function follows(User $user)
+    {
+        $users = User::all();
+        $follows = $user->follows;
+        return view('users.follows', compact('users', 'follows'));
+    }
+
+    public function followers(User $user)
+    {
+        $users = User::all();
+        $followings = $user->followings;
+        return view('users.followers', compact('users', 'followings'));
     }
 
     /**

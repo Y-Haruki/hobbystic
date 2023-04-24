@@ -22,8 +22,8 @@
     <div class="name-and-follow">
       <div class="user-name">{{ $user->name }}</div>
       <div>
-        <a href="">フォロー</a>
-        <a href="">フォロワー</a>
+        <a href="">フォロー:{{ $user->follows()->count() }}</a>
+        <a href="">フォロワー:{{ $user->followings()->count() }}</a>
         @if ($user->id != auth()->id())
           @if (auth()->user()->isFollowing($user))
               <form action="{{ route('users.unfollow', $user) }}" method="POST">

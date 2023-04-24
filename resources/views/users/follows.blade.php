@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container hobby-index-container">
-  <h2>ユーザ一覧</h2>
+  <h2>フォロー一覧</h2>
   <div class="row justify-content-center">
     <div class="col-10">
-      @foreach ($users as $user)
+      @foreach ($follows as $user)
       <div class="user-item">
         <a href="{{ route('users.show', $user->id) }}">
           <div class="d-flex">
@@ -37,6 +37,7 @@
           </div>
         </a>
       </div>
+      
       @endforeach
     </div>
   </div>
