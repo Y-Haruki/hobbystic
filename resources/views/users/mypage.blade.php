@@ -22,8 +22,8 @@
     <div class="name-and-follow">
       <div class="user-name">{{ $user->name }}</div>
       <div>
-        <a href="">フォロー:{{ $user->follows()->count() }}</a>
-        <a href="">フォロワー:{{ $user->followings()->count() }}</a>
+        <a href="{{ route('users.follows', $user->id) }}">フォロー:{{ $user->follows()->count() }}</a>
+        <a href="{{ route('users.followers', $user->id) }}">フォロワー:{{ $user->followings()->count() }}</a>
       </div>
     </div>
   </div>

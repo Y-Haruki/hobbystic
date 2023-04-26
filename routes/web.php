@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryChatController;
 use App\Http\Controllers\HobbyChatController;
+use App\Http\Controllers\TopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\HobbyChatController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 // 投稿機能全体
@@ -45,6 +44,16 @@ Route::get('/', function () {
 // // 投稿の削除機能
 // Route::delete('/hobbies/{post}', [PostController::class, 'destroy'])->name('hobbies.destroy');
 // // 
+
+// ホーム画面
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/', function () {
+//     return view('top.top');
+// });
+Route::get('/', [TopController::class, 'top'])->name('top.top');
+
 
 Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage', 'mypage')->name('mypage');

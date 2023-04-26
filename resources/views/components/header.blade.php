@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm hobbystic-header-container">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm hobbystic-header-container sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           <i>
@@ -36,12 +36,23 @@
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                   <hr>
-                  <li class="nav-item mr-5">
+                  <button type="button" class="menu-btn">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                  </button>
+                  <div class="menu">
+                    <div class="menu__item"><a href="{{ url('/') }}">TOP</a></div>
+                    <div class="menu__item"><a href="{{ route('mypage') }}">マイページ</a></div>
+                    <div class="menu__item"><a href="{{ route('hobbies.index') }}">投稿一覧</a></div>
+                    <div class="menu__item"><a href="{{ route('categories.index') }}">カテゴリ一覧</a></div>
+                    <div class="menu__item"><a href="{{ route('users.index') }}">ユーザ一覧</a></div>
+                    <div class="menu__item">使い方</div>
+                  </div>
+                  <!-- <li class="nav-item mr-5">
                     <a class="nav-link" href="{{ route('login') }}"><i class="far fa-heart"></i></a>
                   </li>
                   <li class="nav-item mr-5">
                     <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-shopping-cart"></i></a>
-                  </li>
+                  </li> -->
                 @else
                   <li class="nav-item mr-5">
                     <a href="{{ route('hobbies.create') }}"> 投稿する</a>
@@ -50,6 +61,7 @@
                       <i class="fas fa-user mr-1"></i><label>マイページ</label>
                     </a>
                   </li>
+                  
                   <!-- <nav>
                     <div class="hamburger-menu">
                       <div class="bar"></div>
@@ -67,6 +79,7 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                   </button>
                   <div class="menu">
+                    <div class="menu__item"><a href="{{ url('/') }}">TOP</a></div>
                     <div class="menu__item"><a href="{{ route('mypage') }}">マイページ</a></div>
                     <div class="menu__item"><a href="{{ route('hobbies.index') }}">投稿一覧</a></div>
                     <div class="menu__item"><a href="{{ route('categories.index') }}">カテゴリ一覧</a></div>

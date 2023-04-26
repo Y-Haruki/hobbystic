@@ -43,6 +43,9 @@
         <main class="py-4 mb-5">
             @yield('content')
         </main>
+
+        @component('components.footer')
+        @endcomponent
     </div>
 
     <!-- <script src="js/header.js"></script> -->
