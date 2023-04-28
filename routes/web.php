@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('hobbies', HobbyController::class)->middleware(['auth', 'verified']);
+Route::resource('hobbies', HobbyController::class);
 Auth::routes(['verify' => true]);
 Route::get('hobbies/{hobby}/favorite', [HobbyController::class, 'favorite'])->name('hobbies.favorite');
 
@@ -90,7 +90,7 @@ Route::resource('categories', CategoryController::class);
 Route::controller(CategoryChatController::class)->group(function () {
     Route::get('/categories/{category}/category_chats', 'index')->name('categories.category_chats.index');
 
-    Route::post('/categories/{category}/category_chats', 'store')->name('categories.category_chats.store');
+    Route::post('/categories/{category}/category_chats', 'store')->name('categories.category_chats.store')->middleware('auth');
 });
 
 // 4/11やること：Route::put('/categories/{category}/category_chats', store)～で投稿できるようにする
@@ -100,6 +100,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('hobby_chats', HobbyChatController::class);
 // Route::post('/add', 'HobbyChatController@add')->name('add');
-Route::post('hobbies/{hobby}/add', [HobbyChatController::class, 'add'])->name('add');
+Route::post('hobbies/{hobby}/add', [HobbyChatController::class, 'add'])->name('add')->middleware('auth');
 Route::get('hobbies/result/ajax/{id}', [HobbyChatController::class, 'getData']);
 

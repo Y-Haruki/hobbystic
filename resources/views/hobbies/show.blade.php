@@ -19,16 +19,18 @@
       <div>ユーザ名</div>
       <div>アイコン</div>
       @if ($hobby->user_id != auth()->id())
-        @if($hobby->isFavoritedBy(Auth::user()))
-        <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
-            <i class="fa fa-heart"></i>
-            お気に入り解除
-        </a>
-        @else
-        <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
-            <i class="fa fa-heart"></i>
-            お気に入り登録
-        </a>
+        @if (Auth::user())
+          @if($hobby->isFavoritedBy(Auth::user()))
+          <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
+              <i class="fa fa-heart"></i>
+              お気に入り解除
+          </a>
+          @else
+          <a href="{{ route('hobbies.favorite', $hobby) }}" class="btn text-favorite ">
+              <i class="fa fa-heart"></i>
+              お気に入り登録
+          </a>
+          @endif
         @endif
       @endif
     </div>

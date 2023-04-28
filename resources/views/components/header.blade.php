@@ -5,16 +5,17 @@
             {{ config('app.name', 'Laravel') }}
           </i>
         </a>
-        <form class="row g-1">
+        <form class="row g-1" method="GET" action="{{ route('hobbies.index') }}">
           <div class="col-auto">
-            <input class="form-control hobbystic-header-search-input" placeholder="キーワードで検索">
+            <input type="search" class="form-control hobbystic-header-search-input" placeholder="キーワードで検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
           </div>
           <div class="col-auto">
             <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
           </div>
-
+        </form>
+        <form class="row g-1" method="GET" action="{{ route('users.index') }}">
           <div class="col-auto">
-            <input class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索">
+            <input type="search" class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
           </div>
           <div class="col-auto">
             <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>

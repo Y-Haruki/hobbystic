@@ -7,35 +7,35 @@
     　　　　　　　　　Hobbysticで新しい発見を</i>
   </h1>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <div class="carousel-inner">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-item active cover-image" data-bs-interval="7000">
+        <img src="{{ asset('images/pic1.png') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item cover-image" data-bs-interval="7000">
+        <img src="{{ asset('images/pic2.png') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item cover-image" data-bs-interval="7000">
+        <img src="{{ asset('images/pic3.png') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item cover-image">
+        <img src="{{ asset('images/pic4.png') }}" class="d-block w-100" alt="...">
+      </div>
     </div>
-    <div class="carousel-item active cover-image" data-bs-interval="7000">
-      <img src="{{ asset('images/pic1.png') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item cover-image" data-bs-interval="7000">
-      <img src="{{ asset('images/pic2.png') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item cover-image" data-bs-interval="7000">
-      <img src="{{ asset('images/pic3.png') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item cover-image">
-      <img src="{{ asset('images/pic4.png') }}" class="d-block w-100" alt="...">
-    </div>
+    <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
   <div class="d-flex justify-content-between mt-2">
     <form class="row g-1">
       <div class="col-auto">
@@ -102,7 +102,21 @@
   </div>
   <!-- ユーザ -->
   <div class="row justify-content-center mt-5">
-    <h4>人気ユーザ</h4>
+    <div class="d-flex ">
+      <h4>人気ユーザ</h4>
+      <form class="row g-1" method="GET" action="{{ route('users.index') }}">
+        <div class="col-auto">
+          <input type="search" class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
+        </div>
+      </form>
+      <div class="d-flex ">
+        <a href="{{ route('users.index') }}">ユーザ一覧へ</a>
+        <a href="{{ route('hobbies.index') }}">投稿一覧へ</a>
+      </div>
+    </div>
     <div class="col-10">
       @foreach ($users as $user)
       <div class="user-item">

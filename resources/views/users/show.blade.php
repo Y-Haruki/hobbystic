@@ -25,17 +25,19 @@
         <a href="">フォロー:{{ $user->follows()->count() }}</a>
         <a href="">フォロワー:{{ $user->followings()->count() }}</a>
         @if ($user->id != auth()->id())
-          @if (auth()->user()->isFollowing($user))
-              <form action="{{ route('users.unfollow', $user) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger">フォロー解除</button>
-              </form>
-          @else
-              <form action="{{ route('users.follow', $user) }}" method="POST">
-                  @csrf
-                  <button type="submit" class="btn btn-primary">フォローする</button>
-              </form>
+          @if (Auth::user())
+            @if (auth()->user()->isFollowing($user))
+                <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">フォロー解除</button>
+                </form>
+            @else
+                <form action="{{ route('users.follow', $user) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">フォローする</button>
+                </form>
+            @endif
           @endif
         @endif
       </div>
