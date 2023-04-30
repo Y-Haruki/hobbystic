@@ -56,7 +56,7 @@ Route::get('/', [TopController::class, 'top'])->name('top.top');
 
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('users/mypage', 'mypage')->name('mypage');
+    Route::get('users/mypage', 'mypage')->name('mypage')->middleware('auth');
     Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
     Route::patch('users/mypage', 'update')->name('mypage.update');
 
