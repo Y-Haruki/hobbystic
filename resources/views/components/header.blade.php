@@ -33,13 +33,13 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                  <li class="nav-item mr-5">
+                  <li class="nav-item mr-5 regist">
                     <a class="nav-link hide0" href="{{ route('register') }}">会員登録</a>
                   </li>
-                  <li class="nav-item mr-5">
+                  <li class="nav-item mr-5 regist">
                     <a class="nav-link hide0" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
-                  <hr>
+                  
                   <button type="button" class="menu-btn">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                   </button>
@@ -92,7 +92,7 @@
                     <div class="menu__item"><a href="{{ route('users.index') }}">ユーザ一覧</a></div>
                     <div class="menu__item hide"><a href="{{ route('hobbies.create') }}"> 投稿する</a></div>
                     <div class="menu__item hide"><a href="{{ route('mypage') }}"><i class="fas fa-user mr-1"></i><label>マイページ</label></a></div>
-                    
+
                     <div class="menu__item">使い方</div>
                   </div>
 
@@ -123,6 +123,11 @@
   $(function(){
     $('.menu-btn').on('click', function(){
       $('.menu').toggleClass('is-active');
+      $('.menu-btn i').toggleClass('fa-bars fa-times');
+    });
+    $('.menu__item').on('click', function(){
+      $('.menu').removeClass('is-active');
+      $('.menu-btn i').removeClass('fa-times').addClass('fa-bars');
     });
   }());
 </script>
