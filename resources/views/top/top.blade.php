@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h1>
-    <i>あなたの趣味ライフをもっと楽しく！<br>
+    <i class="phrase">あなたの趣味ライフをもっと楽しく！<br>
     　　　　　　　　　Hobbysticで新しい発見を</i>
   </h1>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -37,27 +37,34 @@
     </button>
   </div>
   <div class="d-flex justify-content-between mt-2">
-    <form class="row g-1">
+    <form class="row g-1 align-items-center">
       <div class="col-auto">
-        <input class="form-control hobbystic-header-search-input" placeholder="キーワードで検索">
+        <input class="form-control hobbystic-search-input" placeholder="キーワードで検索">
       </div>
       <div class="col-auto">
         <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
       </div>
     </form>
-    <div class="d-flex align-items-center">
-      <div>投稿数:{{ $hobby->count() }}</div>
-      <div>趣味数:{{ $category->count() }}</div>
+    <div class="d-flex align-items-center ">
+      <div class="mr-5">
+        <div class="count-number">{{ $hobby->count() }}</div>
+        <div>投稿数</div>
+      </div>
+      <div class="space"></div>
+      <div>
+        <div class="count-number">{{ $category->count() }}</div>
+        <div>趣味数</div>
+      </div>
     </div>
   </div>
   <div class="mt-5">
-    <h4>人気の趣味</h4>
+    <h4 class="font-weight-bold"><i class="bi bi-bell-fill"></i>人気の趣味</h4>
     <!-- お気に入り登録が沢山されてる趣味を上位3つほど選んで表示 -->
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex flex-wrap">
           @foreach ($hobbies as $hobby)
-          <div class="item">
+          <div class="item-favorite">
             <a href="{{ route('hobbies.show', $hobby->id) }}">
               <div class="hobby-image">
                 <img src="{{ asset('storage/images/'.$hobby->image) }}" alt="" width="100%" height="100%">
@@ -71,20 +78,21 @@
       </div>
     </div>
   </div>
-  <div class="mt-5 d-flex justify-content-around">
+  <div class="mt-5 d-flex">
     <div>
       @foreach ($categories as $category)
-      <a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a>
+      <a href="{{ route('categories.show', $category->id) }}" class="m-2 category-link">{{ $category->name }}</a>
       @endforeach
     </div>
-
-    <a href="{{ route('categories.index') }}">カテゴリ一覧へ</a>
   </div>
+  
+
+  <a href="{{ route('categories.index') }}" class="d-flex justify-content-end index-link"><i class="bi bi-arrow-right-square-fill"></i>カテゴリ一覧へ</a>
 
   <!-- 性格診断 -->
   <!-- カテゴリ -->
   <div class="mt-5">
-    <h4>カテゴリから探す</h4>
+    <h4><i class="bi bi-bell-fill"></i>カテゴリから探す</h4>
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="d-flex flex-wrap">
@@ -102,22 +110,26 @@
   </div>
   <!-- ユーザ -->
   <div class="row justify-content-center mt-5">
-    <div class="d-flex ">
-      <h4>人気ユーザ</h4>
-      <form class="row g-1" method="GET" action="{{ route('users.index') }}">
-        <div class="col-auto">
-          <input type="search" class="form-control hobbystic-header-search-input" placeholder="ユーザ名で検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
-        </div>
-      </form>
-      <div class="d-flex ">
-        <a href="{{ route('users.index') }}">ユーザ一覧へ</a>
-        <a href="{{ route('hobbies.index') }}">投稿一覧へ</a>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <h4 class=""><i class="bi bi-bell-fill"></i>人気ユーザ</h4>
+        <div class="space"></div>
+        <form class="row g-1" method="GET" action="{{ route('users.index') }}">
+          <div class="col-auto">
+            <input type="search" class="form-control hobbystic-search-input" placeholder="ユーザ名で検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn hobbystic-header-search-button"><i class="fas fa-search hobbystic-header-search-icon"></i></button>
+          </div>
+        </form>
+      </div>
+      <div class=" ">
+        <a href="{{ route('users.index') }}" class="mr-2 index-link"><i class="bi bi-arrow-right-square-fill"></i>ユーザ一覧へ</a>
+        <div class="space"></div>
+        <a href="{{ route('hobbies.index') }}" class="index-link"><i class="bi bi-arrow-right-square-fill"></i>投稿一覧へ</a>
       </div>
     </div>
-    <div class="col-10">
+    <div class="col-10 mt-5">
       @foreach ($users as $user)
       <div class="user-item">
         <a href="{{ route('users.show', $user->id) }}">

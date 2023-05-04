@@ -31,7 +31,7 @@ class TopController extends Controller
         ->get();
 
         // 出現回数が多い順にソートし、上位3つのfavoritable_idを取得する
-        $topFavorites = $favoritesCount->sortByDesc('count')->take(2)->pluck('favoriteable_id');
+        $topFavorites = $favoritesCount->sortByDesc('count')->take(3)->pluck('favoriteable_id');
 
         // 投稿データを取得する
         $hobbies = Hobby::whereIn('id', $topFavorites)->get();

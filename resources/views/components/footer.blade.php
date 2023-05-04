@@ -1,10 +1,14 @@
-<nav class="navbar navbar-expand-md text-center bg-white shadow-sm mt-5">
+<nav class="navbar navbar-expand-md shadow-sm mt-5 hobbystic-footer-container">
   <!-- <a class="navbar-brand mx-auto" href="{{ url('/') }}">
       <img src="{{asset('img/logo.jpg')}}" class="img-fluid">
   </a> -->
-  <a class="navbar-brand" href="{{ url('/') }}">
-    <i>
-      {{ config('app.name', 'Laravel') }}
-    </i>
-  </a>
+  <div class="container d-flex justify-content-center">
+    <a class="navbar-brand " href="{{ url('/') }}">
+      <img src="{{ asset('images/logo.png') }}" alt="" class="logo">
+      <i>
+        Hobbystic
+      </i>
+      <p class="copyright mt-2 mb-0">&copy; 2023 Hobbystic</p>
+    </a>
+  </div>
 </nav>
