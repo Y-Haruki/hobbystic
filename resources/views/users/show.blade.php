@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-  <a href="{{ route('users.index') }}">ユーザ一覧へ戻る</a>
+  <a href="{{ route('users.index') }}" class="link">ユーザ一覧へ戻る</a>
   <div class="cover-image">
     @if ($user->image === 'default_image')
     <img src="{{ asset('images/default_image.png') }}" alt="" width="100%" height="100%">
@@ -22,8 +22,8 @@
     <div class="name-and-follow">
       <div class="user-name">{{ $user->name }}</div>
       <div>
-        <a href="">フォロー:{{ $user->follows()->count() }}</a>
-        <a href="">フォロワー:{{ $user->followings()->count() }}</a>
+        <a href="" class="link">フォロー:{{ $user->follows()->count() }}</a>
+        <a href="" class="link">フォロワー:{{ $user->followings()->count() }}</a>
         @if ($user->id != auth()->id())
           @if (Auth::user())
             @if (auth()->user()->isFollowing($user))

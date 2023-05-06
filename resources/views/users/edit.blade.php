@@ -7,10 +7,10 @@
   <hr>
   
   <div class="row text-center">
-    <a href="{{ route('hobbies.index') }}" class="col-3">投稿</a>
-    <a href="{{ route('mypage.favorite') }}" class="col-3">お気に入り</a>
-    <a href="{{ route('mypage.edit') }}" class="col-3">会員情報編集</a>
-    <a href="{{ route('logout') }}" class="col-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+    <a href="{{ route('hobbies.index') }}" class="col-3 link">投稿</a>
+    <a href="{{ route('mypage.favorite') }}" class="col-3 link">お気に入り</a>
+    <a href="{{ route('mypage.edit') }}" class="col-3 link">会員情報編集</a>
+    <a href="{{ route('logout') }}" class="col-3 link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
     </form>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="d-flex justify-content-end mb-0 mt-3">
-      <button type="submit" class="">保存</button>
+      <button type="submit" class="category-button">保存</button>
     </div>
     <hr class="mt-0">
   </form>
@@ -101,8 +101,8 @@
       </div>
     </div>
 
-    <div class="form-group d-flex justify-content-center">
-      <button type="submit" class="btn btn-danger w-25">
+    <div class="form-group d-flex justify-content-end">
+      <button type="submit" class="category-button">
           パスワード更新
       </button>
     </div>

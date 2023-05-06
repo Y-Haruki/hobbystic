@@ -38,8 +38,8 @@
                 <label for="image">画像</label>
                 <input type="file" name="image" id="image" placeholder="画像を入力してください" accept='.png, .jpg, .jpeg, .pdf, .doc'>
               </div>
-              <div>
-                <button type="submit" class="px-2 py-1">更新</button>
+              <div class="text-center">
+                <button type="submit" class="px-2 py-1 category-button">更新</button>
               </div>
             </form>
           </div>
@@ -48,13 +48,13 @@
     </div>
   </div>
 
-  <button data-micromodal-trigger="modal-1" class="modal-open">
+  <button data-micromodal-trigger="modal-1" class="modal-open category-button">
     カテゴリ編集
   </button>
 
   <div class="d-flex justify-content-between">
     <h2>{{ $category->name }}&gt;投稿一覧</h2>
-    <a href="{{ route('categories.category_chats.index', $category->id) }}">掲示板へ</a>
+    <a href="{{ route('categories.category_chats.index', $category->id) }}" class="link">掲示板へ</a>
   </div>
   <!-- <a href="{{ route('categories.edit', $category->id) }}">カテゴリ編集</a> -->
   <div class="row justify-content-center">

@@ -61,9 +61,9 @@
                   </li> -->
                 @else
                   <li class="nav-item mr-5 hide0">
-                    <a href="{{ route('hobbies.create') }}"> 投稿する</a>
+                    <a href="{{ route('hobbies.create') }}" class="link"> 投稿する</a>
                     
-                    <a href="{{ route('mypage') }}">
+                    <a href="{{ route('mypage') }}" class="link">
                       <i class="fas fa-user mr-1"></i><label>マイページ</label>
                     </a>
                   </li>

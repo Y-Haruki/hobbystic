@@ -149,6 +149,16 @@
   font-size: 100%;
 }
 
+.category-button {
+  background-color: #c4e4b4;
+  border: solid 1px #528b33;
+  border-radius: 5px;
+}
+
+.category-button:hover {
+  opacity: 0.8;
+}
+
 /* 投稿詳細show */
 .show-content {
   border: solid 1px #beeebf;
@@ -193,6 +203,17 @@
 
 .user-name {
   font-size: 28px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover {
+  color: #000;
+  opacity: 0.6;
+  /* border-bottom: solid 1px #000; */
 }
 
 /* user.edit */
@@ -403,11 +424,7 @@
   will-change: transform;
 }
 
-/* 掲示板ページ */
-.board-user-icon {
-  width: 50px;
-  height: 50px;
-}
+
 
 /* チャットページ */
 .chat-container {
@@ -520,6 +537,17 @@
 
 .profile-link:hover {
   text-decoration: underline;
+}
+
+/* 掲示板ページ */
+.board-user-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.bulletin-board {
+  width: 70%;
+  height: 100px;
 }
 
 /* ヘッダー */

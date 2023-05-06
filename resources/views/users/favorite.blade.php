@@ -7,10 +7,10 @@
   <hr class="mt-0">
   
   <div class="row text-center">
-    <a href="{{ route('hobbies.index') }}" class="col-3">投稿</a>
-    <a href="{{ route('mypage.favorite') }}" class="col-3">お気に入り</a>
-    <a href="{{ route('mypage.edit') }}" class="col-3">会員情報編集</a>
-    <a href="{{ route('logout') }}" class="col-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+    <a href="{{ route('hobbies.index') }}" class="col-3 link">投稿</a>
+    <a href="{{ route('mypage.favorite') }}" class="col-3 link">お気に入り</a>
+    <a href="{{ route('mypage.edit') }}" class="col-3 link">会員情報編集</a>
+    <a href="{{ route('logout') }}" class="col-3 link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
     </form>

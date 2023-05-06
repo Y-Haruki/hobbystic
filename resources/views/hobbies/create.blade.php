@@ -38,8 +38,8 @@
                 <label for="image">画像</label>
                 <input type="file" name="image" id="image" placeholder="画像を入力してください" accept='.png, .jpg, .jpeg, .pdf, .doc'>
               </div>
-              <div>
-                <button type="submit" class="px-2 py-1">作成</button>
+              <div class="text-center">
+                <button type="submit" class="px-2 py-1 category-button">作成</button>
               </div>
             </form>
           </div>
@@ -47,11 +47,13 @@
       </div>
     </div>
   </div>
-  <a href="{{ route('hobbies.index') }}">&gt; 戻る</a>
+  <!-- <a href="{{ route('hobbies.index') }}">&gt; 戻る</a> -->
   <h2>投稿作成</h2>
-  <button data-micromodal-trigger="modal-1" class="modal-open">
+  <button data-micromodal-trigger="modal-1" class="modal-open category-button">
     カテゴリ作成
   </button>
+  <p><small>カテゴリにない場合はこちらから作成してください。画像はカテゴリに適したものを使用してください。</small></p>
+
   
   <form action="{{ route('hobbies.store') }}" method='POST' enctype="multipart/form-data">
     @csrf
@@ -102,7 +104,7 @@
       <p>場所を登録してください</p>
     </div> -->
     <div class="text-center">
-      <button type='submit' class="px-2 py-1">作成</button>
+      <button type='submit' class="px-2 py-1 category-button">作成</button>
     </div>
   </form>
 </div>
