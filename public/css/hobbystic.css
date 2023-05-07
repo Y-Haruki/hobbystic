@@ -3,6 +3,9 @@
   background-color: #beeebf;
   height: 100%;
 } */
+main {
+  min-height: 73vh;
+}
 
 /* トップ画面 */
 .phrase {

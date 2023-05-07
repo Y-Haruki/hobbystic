@@ -46,7 +46,6 @@
       {{ $hobby->content }}
     </div>
     <div>場所</div>
-    <a href="{{ route('hobby_chats.index') }}">チャット機能</a>
     <div>
       <div class="chat-container row justify-content-center">
           <div class="chat-area">
